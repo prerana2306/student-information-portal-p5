@@ -1,0 +1,17 @@
+<%- include('partials/header', { title }) %>
+<section class="page-heading"><div><span class="eyebrow">STUDENT DIRECTORY</span><h1>Add a student</h1><p>Fields are checked on the server before a record is saved.</p></div><a class="button button-secondary" href="/students">← Back to records</a></section>
+<div class="form-layout">
+  <section class="form-card">
+    <div class="form-card-heading"><span class="feature-icon blue">＋</span><div><h2>Student information</h2><p>Enter the student's academic details below.</p></div></div>
+    <% if (errors.length) { %><div class="alert alert-error" role="alert"><strong>Please fix the following:</strong><ul><% errors.forEach(error => { %><li><%= error.msg %></li><% }) %></ul></div><% } %>
+    <form method="POST" action="<%= formAction %>" novalidate>
+      <div class="field"><label for="name">Full name</label><input id="name" name="name" value="<%= student.name || '' %>" placeholder="e.g. Aditi Deshmukh" required maxlength="60"><small>2–60 characters; letters, spaces, dots, apostrophes and hyphens.</small></div>
+      <div class="field"><label for="prn">PRN / Roll number</label><input id="prn" name="prn" value="<%= student.prn || '' %>" placeholder="e.g. 202401000244" required maxlength="20"><small>Must be unique; letters, numbers and hyphens only.</small></div>
+      <div class="field"><label for="email">Email address</label><input id="email" type="email" name="email" value="<%= student.email || '' %>" placeholder="student@example.com" required><small>Must be a valid and unique email address.</small></div>
+      <div class="field-row"><div class="field"><label for="course">Course</label><select id="course" name="course" required><% ['Computer Engineering','Information Technology','Electronics Engineering','Mechanical Engineering','Civil Engineering'].forEach(c => { %><option value="<%= c %>" <%= student.course === c ? 'selected' : '' %>><%= c %></option><% }) %></select></div><div class="field"><label for="year">Academic year</label><select id="year" name="year" required><% ['FY','SY','TY','Final Year'].forEach(y => { %><option value="<%= y %>" <%= student.year === y ? 'selected' : '' %>><%= y %></option><% }) %></select></div></div>
+      <button class="button button-primary submit-button" type="submit">Validate & Save Student <span>→</span></button>
+    </form>
+  </section>
+  <aside class="side-note"><span class="eyebrow">SERVER-SIDE VALIDATION</span><h3>Why validate on the server?</h3><p>Browser checks can be bypassed. Express-validator checks submitted data on the server before it is added to the student list.</p><ul><li>Required and valid name</li><li>Unique PRN and email</li><li>Valid email format</li><li>Allowed course and year</li></ul><div class="code-note">Invalid form → HTTP 422<br>Bad student ID → HTTP 400<br>Missing record → HTTP 404</div></aside>
+</div>
+<%- include('partials/footer') %>

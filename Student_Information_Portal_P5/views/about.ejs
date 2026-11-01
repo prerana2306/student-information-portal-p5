@@ -1,0 +1,10 @@
+<%- include('partials/header', { title }) %>
+<section class="page-heading"><div><span class="eyebrow">ABOUT THE PRACTICAL</span><h1>Learning by building.</h1><p>A small portal built to demonstrate the required ExpressJS concepts for Web Technology Practical No. 5.</p></div></section>
+<div class="feature-grid about-grid">
+  <article class="feature-card"><span class="feature-icon blue">01</span><h3>Routing</h3><p>Home, about, student list, student creation, and student detail routes.</p></article>
+  <article class="feature-card"><span class="feature-icon orange">02</span><h3>Middleware</h3><p>Express body parsers, Helmet, Morgan, and a custom request logger.</p></article>
+  <article class="feature-card"><span class="feature-icon purple">03</span><h3>Validation</h3><p>express-validator validates all submitted student fields server-side.</p></article>
+  <article class="feature-card"><span class="feature-icon green">04</span><h3>Templates & static files</h3><p>EJS templates render pages and CSS/JavaScript are served from public.</p></article>
+</div>
+<div class="notice"><strong>Storage limitation:</strong> This demonstration stores records in server memory, not a persistent database. It is suitable for demonstrating routing and validation, but data is reset when the server restarts.</div>
+<%- include('partials/footer') %>

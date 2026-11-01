@@ -1,0 +1,5 @@
+<%- include('partials/header', { title }) %>
+<% if (created) { %><div class="alert alert-success">✓ Student record passed server-side validation and was saved for this session.</div><% } %>
+<section class="page-heading"><div><span class="eyebrow">STUDENT PROFILE</span><h1>Student details</h1><p>Record ID #<%= student.id %></p></div><a class="button button-secondary" href="/students">← All students</a></section>
+<div class="detail-card"><div class="detail-banner"><span class="avatar large"><%= student.name.split(' ').map(n => n[0]).slice(0,2).join('').toUpperCase() %></span><div><h2><%= student.name %></h2><p><%= student.course %></p><span class="pill">Active demo record</span></div></div><div class="detail-grid"><div><small>PRN / Roll number</small><strong><%= student.prn %></strong></div><div><small>Email address</small><strong><%= student.email %></strong></div><div><small>Academic year</small><strong><%= student.year %></strong></div><div><small>Student ID</small><strong><%= student.id %></strong></div></div></div>
+<%- include('partials/footer') %>

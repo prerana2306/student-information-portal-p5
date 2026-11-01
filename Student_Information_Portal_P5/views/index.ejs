@@ -1,0 +1,31 @@
+<%- include('partials/header', { title }) %>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">EXPRESSJS · WEB TECHNOLOGY</span>
+    <h1>Student records,<br><span>made simple.</span></h1>
+    <p>A clean student information portal demonstrating Express routing, middleware, server-side validation, and centralized error handling.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/students">Explore Students <span>→</span></a>
+      <a class="button button-secondary" href="/students/new">＋ Add a Student</a>
+    </div>
+    <div class="hero-stats"><div><strong>05</strong><small>Core routes</small></div><div><strong>03</strong><small>Middleware types</small></div><div><strong>100%</strong><small>Server validation</small></div></div>
+  </div>
+  <div class="hero-visual">
+    <div class="visual-glow"></div><div class="mock-window">
+      <div class="window-top"><span></span><span></span><span></span><small>student-records.js</small></div>
+      <div class="code-lines"><p><i>01</i> <b>router</b>.post(<em>'/'</em>,</p><p><i>02</i> &nbsp;studentValidation,</p><p><i>03</i> &nbsp;(req, res) =&gt; {</p><p><i>04</i> &nbsp;&nbsp;<strong>const</strong> errors =</p><p><i>05</i> &nbsp;&nbsp;validationResult(req);</p><p><i>06</i> &nbsp;&nbsp;<strong>if</strong> (!errors.isEmpty()) {</p><p><i>07</i> &nbsp;&nbsp;&nbsp;res.status(<mark>422</mark>);</p><p><i>08</i> &nbsp;&nbsp;}</p><p><i>09</i> });</p></div>
+      <div class="success-chip"><span>✓</span> Validation enabled</div>
+    </div>
+    <div class="floating-card"><span class="avatar">AS</span><div><strong>Aarav Sharma</strong><small>Computer Engineering</small></div><span class="status-dot"></span></div>
+  </div>
+</section>
+<section class="feature-section">
+  <div class="section-heading"><span class="eyebrow">WHAT'S INCLUDED</span><h2>Built to demonstrate the essentials.</h2><p>Practical ExpressJS concepts, connected in one working application.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card"><span class="feature-icon blue">↗</span><h3>Express Router</h3><p>Separate student routes, URL parameters, and clean route organization.</p></article>
+    <article class="feature-card"><span class="feature-icon orange">✓</span><h3>Server Validation</h3><p>Checks names, unique PRNs, email addresses, courses, and academic year on the server.</p></article>
+    <article class="feature-card"><span class="feature-icon purple">⌘</span><h3>Middleware</h3><p>Built-in parsing, security headers, request logging, and custom middleware.</p></article>
+    <article class="feature-card"><span class="feature-icon green">!</span><h3>Error Handling</h3><p>Friendly 404 pages, invalid route-parameter responses, and centralized error handling.</p></article>
+  </div>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,14 @@
+<%- include('partials/header', { title }) %>
+<section class="page-heading">
+  <div><span class="eyebrow">DIRECTORY</span><h1>Student records</h1><p>Browse the demo records or add a new student.</p></div>
+  <a class="button button-primary" href="/students/new">＋ Add Student</a>
+</section>
+<div class="table-card">
+  <div class="table-top"><div><h2>All students</h2><p><%= students.length %> records in the current session</p></div><span class="pill">Demo data</span></div>
+  <% if (students.length === 0) { %><div class="empty-state">No students yet. Add your first record.</div><% } else { %>
+  <div class="table-scroll"><table><thead><tr><th>Student</th><th>PRN</th><th>Course</th><th>Year</th><th></th></tr></thead><tbody>
+  <% students.forEach(student => { %><tr><td><div class="student-cell"><span class="avatar small"><%= student.name.split(' ').map(n => n[0]).slice(0,2).join('').toUpperCase() %></span><strong><%= student.name %></strong></div></td><td><%= student.prn %></td><td><%= student.course %></td><td><span class="year-tag"><%= student.year %></span></td><td><a class="table-link" href="/students/<%= student.id %>">View details →</a></td></tr><% }) %>
+  </tbody></table></div><% } %>
+</div>
+<div class="notice"><strong>Note:</strong> This assignment version uses in-memory demo data. New records reset when the server restarts.</div>
+<%- include('partials/footer') %>
